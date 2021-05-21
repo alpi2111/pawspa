@@ -6,10 +6,6 @@ import 'package:liquid_swipe/liquid_swipe.dart';
 
 class ItemIconText extends StatelessWidget {
   final _iconSize = 140.0;
-  final _style = TextStyle(
-    fontSize: 36.0,
-    color: Colors.white,
-  );
   final String text;
   final IconData icon;
   final Color containerColor;
@@ -18,6 +14,18 @@ class ItemIconText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextStyle _style;
+    if (this.containerColor.computeLuminance() >= 0.5) {
+      _style = TextStyle(
+        fontSize: 36.0,
+        color: Colors.black,
+      );
+    } else {
+      _style = TextStyle(
+        fontSize: 36.0,
+        color: Colors.white,
+      );
+    }
     return Container(
       width: double.maxFinite,
       height: double.maxFinite,
@@ -30,12 +38,12 @@ class ItemIconText extends StatelessWidget {
             child: Icon(
               this.icon,
               size: _iconSize,
-              color: Colors.grey[200],
+              color: this.containerColor.computeLuminance() >= 0.5 ? Colors.black : Colors.grey[200],
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(40.0),
-            child: Text(this.text, style: this._style),
+            child: Text(this.text, style: _style),
           ),
           // SizedBox(height: 400.0),
         ],
