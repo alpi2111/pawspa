@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pawspa/src/helpers/routes.dart';
 
 void main() => runApp(MyApp());
@@ -15,6 +16,18 @@ class MyApp extends StatelessWidget {
         "slide_info": (BuildContext context) => SlideInfoPage(),
       },
       theme: ThemeData(
+        // fontFamily: GoogleFonts.acme(),
+        // textTheme: TextTheme(
+        //   bodyText1: GoogleFonts.koHo(),
+        //   bodyText2: GoogleFonts.koHo(),
+        //   headline1: GoogleFonts.koHo(),
+        //   headline2: GoogleFonts.koHo(),
+        //   headline3: GoogleFonts.koHo(),
+        //   headline4: GoogleFonts.koHo(),
+        //   headline5: GoogleFonts.koHo(),
+        //   headline6: GoogleFonts.koHo(),
+        // ),
+        textTheme: GoogleFonts.koHoTextTheme(),
         appBarTheme: AppBarTheme(
           brightness: Brightness.dark
         ),
@@ -33,6 +46,7 @@ class MyApp extends StatelessWidget {
             900: Color(0xff2822c8),
           },
         ),
+        primaryColor: Color(0xFF524ADE),
       ),
     );
   }
