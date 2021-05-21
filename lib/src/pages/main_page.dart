@@ -126,7 +126,9 @@ class ItemMenu extends StatelessWidget {
               style: TextStyle(fontSize: 24.0),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed('map_view');
+              },
               child: Text('Ir al mapa'),
             ),
           ],

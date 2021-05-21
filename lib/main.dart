@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "main": (BuildContext context) => MainPage(),
         "slide_info": (BuildContext context) => SlideInfoPage(),
+        "map_view": (BuildContext context) => MapView(),
       },
       theme: ThemeData(
         // fontFamily: GoogleFonts.acme(),
