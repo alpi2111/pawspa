@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Paw Spa',
-      home: MainPage(),
+      home: SlideInfoPage(),
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           brightness: Brightness.dark
