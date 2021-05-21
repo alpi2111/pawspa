@@ -12,13 +12,22 @@ class _SlideInfoPageState extends State<SlideInfoPage> {
   int page = 0;
   final List<Widget> pages = [
     Container(
+      width: double.maxFinite,
+      height: double.maxFinite,
       color: Colors.red,
     ),
     Container(
+      width: double.maxFinite,
+      height: double.maxFinite,
       color: Colors.yellow,
     ),
     Container(
+      width: double.maxFinite,
+      height: double.maxFinite,
       color: Colors.green,
+    ),
+    Container(
+      color: Colors.white,
     ),
   ];
   @override
@@ -29,11 +38,15 @@ class _SlideInfoPageState extends State<SlideInfoPage> {
           LiquidSwipe(
             pages: pages,
             enableSideReveal: true,
+            enableLoop: false,
             slideIconWidget: Icon(Icons.arrow_back),
             onPageChangeCallback: (i) {
               setState(() {
                 page = i;
               });
+              if (i == pages.length - 1) {
+                Navigator.of(context).pushReplacementNamed("main");
+              }
             },
           ),
           Padding(
@@ -43,7 +56,7 @@ class _SlideInfoPageState extends State<SlideInfoPage> {
                 Expanded(child: Container()),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: List<Widget>.generate(pages.length, _buildDot),
+                  children: List<Widget>.generate(pages.length - 1, _buildDot),
                 ),
               ],
             ),
