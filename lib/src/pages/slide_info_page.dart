@@ -1,7 +1,48 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
+
+class ItemIconText extends StatelessWidget {
+  final _iconSize = 140.0;
+  final _style = TextStyle(
+    fontSize: 36.0,
+    color: Colors.white,
+  );
+  final String text;
+  final IconData icon;
+  final Color containerColor;
+
+  ItemIconText({required this.text, required this.icon, required this.containerColor});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.maxFinite,
+      height: double.maxFinite,
+      color: this.containerColor,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SafeArea(
+            child: Icon(
+              this.icon,
+              size: _iconSize,
+              color: Colors.grey[200],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(40.0),
+            child: Text(this.text, style: this._style),
+          ),
+          // SizedBox(height: 400.0),
+        ],
+      ),
+    );
+  }
+}
 
 class SlideInfoPage extends StatefulWidget {
   @override
@@ -11,20 +52,20 @@ class SlideInfoPage extends StatefulWidget {
 class _SlideInfoPageState extends State<SlideInfoPage> {
   int page = 0;
   final List<Widget> pages = [
-    Container(
-      width: double.maxFinite,
-      height: double.maxFinite,
-      color: Colors.red,
+    ItemIconText(
+      containerColor: Colors.purple,
+      icon: LineIcons.dog,
+      text: 'El spa en donde tu mascota será tratado como en casa',
     ),
-    Container(
-      width: double.maxFinite,
-      height: double.maxFinite,
-      color: Colors.yellow,
+    ItemIconText(
+      containerColor: Colors.pink,
+      icon: LineIcons.paw,
+      text: 'Su comodidad es nuestra prioridad',
     ),
-    Container(
-      width: double.maxFinite,
-      height: double.maxFinite,
-      color: Colors.green,
+    ItemIconText(
+      containerColor: Colors.teal,
+      icon: LineIcons.bone,
+      text: 'La calidad nos define',
     ),
     Container(
       color: Colors.white,
